@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Transforming visions into high-performance digital solutions. Professional web development for startups and enterprises by Himanshu.">
+    <meta name="keywords" content="Himanshu, Web Development, Software Engineer, Portfolio, Startup Website, Full-Stack Developer">
+    <meta name="author" content="Himanshu">
+    <meta name="theme-color" content="#2563eb">
+    <meta property="og:title" content="Himanshu | Web Developer & Software Engineer">
+    <meta property="og:description" content="Expert web development services for startups and businesses">
+    <meta property="og:type" content="website">
+    
+    <title>Himanshu | Expert Web Developer & Software Engineer</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+        
+        .navbar {
+            position: sticky;
+            top: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.8rem;
+            color: #2563eb;
+        }
+        
+        .logo span {
+            color: #0ea5e9;
+        }
+        
+        .tagline {
+            font-size: 0.85rem;
+            color: #666;
+            margin-top: 0.25rem;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .nav-links a:hover {
+            color: #2563eb;
+            transform: translateY(-2px);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .section {
+            margin: 4rem 0;
+            padding: 3rem;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            animation: slideUp 0.6s ease;
+        }
+        
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .section h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.5rem;
+            color: #1f2937;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            transition: left 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
+        }
+        
+        .card:hover::before {
+            left: 100%;
+        }
+        
+        .card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .card i {
+            font-size: 2.5rem;
+            margin-top: 1rem;
+        }
+        
+        .vision-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .vision-card {
+            background: #f8fafc;
+            padding: 2rem;
+            border-radius: 10px;
+            border-left: 4px solid #2563eb;
+            transition: all 0.3s ease;
+        }
+        
+        .vision-card:hover {
+            background: #eff6ff;
+            transform: translateX(10px);
+        }
+        
+        .vision-card i {
+            font-size: 2rem;
+            color: #2563eb;
+            margin-bottom: 1rem;
+        }
+        
+        .vision-card h4 {
+            font-size: 1.3rem;
+            color: #1f2937;
+            margin-bottom: 0.5rem;
+        }
+        
+        .get-in-touch {
+            display: inline-block;
+            background: linear-gradient(135deg, #2563eb 0%, #0ea5e9 100%);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            margin-top: 2rem;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+        
+        .get-in-touch:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.4);
+        }
+        
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .reveal-active {
+            opacity: 1;
+            transform: translateY(0);
+            transition: all 0.6s ease;
+        }
+        
+        footer {
+            background: #1f2937;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+            border-top: 3px solid #2563eb;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+        
+        .social-links a {
+            color: white;
+            font-size: 1.8rem;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            color: #2563eb;
+            transform: scale(1.2);
+        }
+        
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin: 2rem 0;
+            text-align: center;
+        }
+        
+        .stat-item h3 {
+            font-size: 2.5rem;
+            color: #2563eb;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-item p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+        
+        .testimonial-slider {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .testimonial-card {
+            background: #f0f9ff;
+            padding: 2rem;
+            border-radius: 10px;
+            border: 2px solid #dbeafe;
+        }
+        
+        .testimonial-card .stars {
+            color: #fbbf24;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .contact-form input,
+        .contact-form textarea {
+            padding: 1rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            font-family: inherit;
+            transition: border-color 0.3s ease;
+        }
+        
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: #2563eb;
+            background: #f0f9ff;
+        }
+        
+        .contact-form textarea {
+            grid-column: 1 / -1;
+            resize: vertical;
+            min-height: 150px;
+        }
+        
+        .btn-submit {
+            grid-column: 1 / -1;
+            background: linear-gradient(135deg, #2563eb 0%, #0ea5e9 100%);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.4);
+        }
+        
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .pricing-card {
+            border: 2px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .pricing-card.featured {
+            border-color: #2563eb;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            transform: scale(1.05);
+        }
+        
+        .pricing-card:hover {
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+            transform: translateY(-5px);
+        }
+        
+        .pricing-card h3 {
+            font-size: 1.5rem;
+            color: #1f2937;
+            margin-bottom: 1rem;
+        }
+        
+        .price {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2rem;
+            color: #2563eb;
+            margin: 1rem 0;
+        }
+        
+        .features-list {
+            list-style: none;
+            margin: 1.5rem 0;
+        }
+        
+        .features-list li {
+            padding: 0.5rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .features-list i {
+            color: #10b981;
+            font-size: 1.2rem;
+        }
+        
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .nav-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .section h2 {
+                font-size: 1.8rem;
+            }
+            
+            .stats-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .contact-form {
+                grid-template-columns: 1fr;
+            }
+            
+            .pricing-card.featured {
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo">
+            <h1>Himanshu<span>.dev</span></h1>
+            <p class="tagline">Premium Web Solutions for Modern Businesses</p>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="#about"><i class="fas fa-user"></i> About</a></li>
+                <li><a href="#services"><i class="fas fa-cogs"></i> Services</a></li>
+                <li><a href="#projects"><i class="fas fa-briefcase"></i> Projects</a></li>
+                <li><a href="#pricing"><i class="fas fa-tags"></i> Pricing</a></li>
+                <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <!-- Hero Section -->
+        <section id="home" class="section reveal">
+            <h2>Turning Your Vision Into High-Performance Digital Reality</h2>
+            <p style="font-size: 1.1rem; text-align: center; color: #666; margin: 2rem 0;">
+                I craft beautiful, fast, and scalable websites that help businesses grow. From startups to enterprises, 
+                I deliver solutions that exceed expectations and drive measurable results.
+            </p>
+            <div class="stats-container">
+                <div class="stat-item">
+                    <h3>50+</h3>
+                    <p>Projects Completed</p>
+                </div>
+                <div class="stat-item">
+                    <h3>100%</h3>
+                    <p>Client Satisfaction</p>
+                </div>
+                <div class="stat-item">
+                    <h3>8+</h3>
+                    <p>Years Experience</p>
+                </div>
+                <div class="stat-item">
+                    <h3>24/7</h3>
+                    <p>Support Available</p>
+                </div>
+            </div>
+            <div style="text-align: center;">
+                <a href="#contact" class="get-in-touch">
+                    <i class="fas fa-paper-plane"></i> Start Your Project Today
+                </a>
+            </div>
+        </section>
+
+        <!-- Why Choose Section -->
+        <section id="services" class="section reveal">
+            <h2>Why Choose Himanshu?</h2>
+            <div class="services-grid">
+                <div class="card reveal">
+                    <i class="fas fa-magic"></i>
+                    <h3>Modern Design</h3>
+                    <p>Clean, contemporary web design that impresses clients and engages users for maximum impact.</p>
+                </div>
+                <div class="card reveal">
+                    <i class="fas fa-wallet"></i>
+                    <h3>Affordable Pricing</h3>
+                    <p>Strategic pricing plans that make professional web development accessible to all startups.</p>
+                </div>
+                <div class="card reveal">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Scalable Solutions</h3>
+                    <p>Build architectures designed to grow with your business without compromising performance.</p>
+                </div>
+                <div class="card reveal">
+                    <i class="fas fa-search"></i>
+                    <h3>SEO Optimized</h3>
+                    <p>Every website is built with SEO best practices to rank higher and attract organic traffic.</p>
+                </div>
+                <div class="card reveal">
+                    <i class="fas fa-mobile-alt"></i>
+                    <h3>Responsive Design</h3>
+                    <p>Perfect experience on all devices - desktop, tablet, and mobile with adaptive layouts.</p>
+                </div>
+                <div class="card reveal">
+                    <i class="fas fa-bolt"></i>
+                    <h3>Lightning Fast</h3>
+                    <p>Optimized for speed with load times under 2 seconds for better conversions and SEO.</p>
+                </div>
+                <div class="card reveal">
+                    <i class="fas fa-life-ring"></i>
+                    <h3>Priority Support</h3>
+                    <p>Ongoing support and maintenance to keep your website secure, fast, and updated.</p>
+                </div>
+                <div class="card reveal">
+                    <i class="fas fa-users"></i>
+                    <h3>User First</h3>
+                    <p>Intuitive interfaces designed around user behavior to maximize engagement and conversions.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Vision & Process Section -->
+        <section id="vision" class="section reveal">
+            <h2>Our Development Process</h2>
+            <div class="vision-grid">
+                <div class="vision-card reveal">
+                    <i class="fas fa-bullseye"></i>
+                    <h4>1. Discovery & Strategy</h4>
+                    <p>We understand your business goals, target audience, and competitive landscape to create a winning strategy tailored to your needs.</p>
+                </div>
+                <div class="vision-card reveal">
+                    <i class="fas fa-pen-nib"></i>
+                    <h4>2. Design & Prototyping</h4>
+                    <p>Creating stunning, user-centric designs with interactive prototypes that align perfectly with your brand identity.</p>
+                </div>
+                <div class="vision-card reveal">
+                    <i class="fas fa-code"></i>
+                    <h4>3. Development</h4>
+                    <p>Clean, efficient code using modern technologies and best practices to build robust, maintainable solutions.</p>
+                </div>
+                <div class="vision-card reveal">
+                    <i class="fas fa-rocket"></i>
+                    <h4>4. Testing & Launch</h4>
+                    <p>Comprehensive testing across all platforms and browsers, followed by flawless deployment to production.</p>
+                </div>
+                <div class="vision-card reveal">
+                    <i class="fas fa-chart-line"></i>
+                    <h4>5. Analytics & Optimization</h4>
+                    <p>Tracking performance metrics, user behavior, and implementing data-driven improvements continuously.</p>
+                </div>
+                <div class="vision-card reveal">
+                    <i class="fas fa-headset"></i>
+                    <h4>6. Support & Growth</h4>
+                    <p>Long-term partnership with dedicated support, regular updates, and strategic guidance for sustained success.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="section reveal">
+            <h2>About Me</h2>
+            <p style="font-size: 1.1rem; line-height: 1.8; margin: 2rem 0;">
+                Hello! I'm Himanshu, a full-stack web developer with a passion for creating exceptional digital experiences. 
+                With over 8 years of experience in web development, I've helped over 50 startups and businesses transform their 
+                visions into reality through high-performance, beautifully designed websites.
+            </p>
+            <p style="font-size: 1.1rem; line-height: 1.8; margin: 2rem 0;">
+                My expertise spans modern web technologies including React, Node.js, Next.js, and cloud platforms like AWS and Google Cloud. 
+                I specialize in building scalable solutions that grow with your business, combined with a strong focus on user experience 
+                and performance optimization.
+            </p>
+            <p style="font-size: 1.1rem; line-height: 1.8; margin: 2rem 0;">
+                Whether you're a startup looking to establish your online presence or an enterprise seeking to revamp your digital infrastructure, 
+                I bring a unique combination of technical expertise, creative thinking, and business acumen to every project. 
+                My commitment is to deliver not just websites, but strategic digital assets that drive real business results.
+            </p>
+            <div style="text-align: center; margin-top: 2rem;">
+                <a href="#contact" class="get-in-touch">
+                    <i class="fas fa-handshake"></i> Let's Collaborate
+                </a>
+            </div>
+        </section>
+        <!-- Testimonials Section -->
+        <section class="section reveal">
+            <h2>Client Testimonials</h2>
+            <div class="testimonial-slider">
+                <div class="testimonial-card reveal">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"Himanshu transformed our online presence completely. The website is fast, beautiful, and converts visitors into customers. Highly recommend!"</p>
+                    <p><strong>- Rajesh Kumar, Tech Startup Founder</strong></p>
+                </div>
+                <div class="testimonial-card reveal">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"Professional, responsive, and affordable. Himanshu understood our vision and delivered beyond expectations. Best investment for our business."</p>
+                    <p><strong>- Priya Sharma, E-Commerce Owner</strong></p>
+                </div>
+                <div class="testimonial-card reveal">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"Exceptional customer service, timely delivery, and impeccable code quality. Working with Himanshu was a game-changer for our business."</p>
+                    <p><strong>- Amit Singh, Restaurant Chain Owner</strong></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Projects Section -->
+        <section id="projects" class="section reveal">
+            <h2>Featured Projects & Case Studies</h2>
+            <div class="services-grid">
+                <div class="card reveal">
+                    <h3>Pizza Plaza</h3>
+                    <p>Full-featured food delivery platform with real-time order tracking, integrated payment gateway, and mobile-responsive design.</p>
+                    <a href="https://pizzzaplazaa.vercel.app/" style="color: white; text-decoration: underline; display: inline-block; margin-top: 1rem;">
+                        <i class="fas fa-external-link-alt"></i> Visit Project
+                    </a>
+                </div>
+                <div class="card reveal">
+                    <h3>Portfolio Website</h3>
+                    <p>Modern portfolio showcasing technical expertise, project portfolio, and service offerings with optimized SEO and fast loading times.</p>
+                    <a href="https://imwebuilder.vercel.app/" style="color: white; text-decoration: underline; display: inline-block; margin-top: 1rem;">
+                        <i class="fas fa-external-link-alt"></i> Visit Project
+                    </a>
+                </div>
+                <div class="card reveal">
+                    <h3>E-Commerce Platform</h3>
+                    <p>Scalable e-commerce solution with product catalog, cart system, secure checkout, and inventory management dashboard.</p>
+                    <i class="fas fa-shopping-cart"></i>
+                </div>
+                <div class="card reveal">
+                    <h3>SAAS Application</h3>
+                    <p>Custom SaaS platform with user authentication, subscription management, analytics dashboard, and API integrations.</p>
+                    <i class="fas fa-cloud"></i>
+                </div>
+                <div class="card reveal">
+                    <h3>Business Website</h3>
+                    <p>Corporate website with CMS integration, blog system, client testimonials, and lead generation forms.</p>
+                    <i class="fas fa-building"></i>
+                </div>
+                <div class="card reveal">
+                    <h3>Service Portal</h3>
+                    <p>Service booking platform with scheduling system, payment integration, customer reviews, and admin dashboard.</p>
+                    <i class="fas fa-concierge-bell"></i>
+                </div>
+            </div>
+        </section>
+
+    <section id="projects" class="section">
+      <h2 class="rival">My Projects</h2>
+        <div class="project-gridd">
+          <div class="project-cardss">
+             <h1 class="project-card">Pizza Plaza</h1>
+             <p>Description:- Himanshu is developing A Website For A Startup business "Pizza Plaza".</p>
+             <p>The Website Is Awesome In Looks And Usablity But currently Website's Payment Gateway And OTP Sender is Not Working Because of The Developing Phase OF The Site</p>
+             <i class="fas fa-hand-point-down" style="font-size: 50px;">Click This</i>
+             <a href="https://pizzzaplazaa.vercel.app/"><img src="https://i.ibb.co/Xx48qhs4/image.png"class=my-logo alt="image"></a>
+        </div>
+          <div class="project-cardss">
+           <h1 class="project-card">His Own Portfolio</h1>
+        <p>Description: Himanshu is Developing A Website For His own Portfolio.</p>
+        <p>This Website Looks Very Good But The Problem Is Payment gateway And OTP Sender is not Working as The Website Is Under 
+          Development Once It Is Completed He Will Update The Website Very Soon.All the Other things Are Working Fine You Can Check His Portfolio Site.</p>
+        <i class="fas fa-hand-point-down" style="font-size: 50px;">Click This</i>
+        <a href="https://imwebuilder.vercel.app/" style="font-size: 50px;"><img src="https://i.ibb.co/9kTRSFmS/image.png"class=my-logo alt="image" border="0"></a>
+        </div>
+    </section>
+
+    <section id="Plans" class="section">
+      <h2 class="rival">Plans</h2>
+      <div class="project-gridd"></div>
+          </div>
+       <div class="project-cardss">
+        <h2 class="rival">Starter</h2>
+        <h1>Price= 3000₹-5000₹</h1>
+        <li>Single Page (One-Page Scrolling Website)</li>
+
+<li>Basic Template-Based Design (No Customization)</li>
+
+<li>Mobile & Tablet Responsive Layout</li>
+
+<li>Essential Business Information (About & Services)</li>
+
+<li>Click-to-Call & WhatsApp Button Integration</li>
+
+<li>Social Media Links Icons</li>
+
+<li>Domain & Hosting to be Provided by Client</li>
+
+<li>Standard Contact Form (Basic)</li>
+
+<li>7 Days Delivery Time</li>
+
+<li>No Maintenance or SEO Included</li>
+       </div>
+    </section>
+        <section id="pricing" class="section">
+          <div class="project-cardss">
+            <h2 class="rival">Basic</h2>
+            <h1 class="division">Price= 5k-10k </h1>
+            <li>Upto 3-5 Professional Pages (Home, About, Services, Contact)</li>
+
+                  <li>100% Mobile & Tablet Responsive Design</li>
+
+                <li>High-Speed Performance Optimization (Under 3s Load Time)</li>
+
+              <li>Free SSL Certificate Integration (Secure Site)</li>
+
+            <li>Direct WhatsApp Chat Integration</li>
+
+          <li>Social Media Professional Links Setup</li>
+
+        <li>Contact Form with Email Notifications</li>
+
+      <li>Basic On-Page SEO (Google Search Friendly)</li>
+
+     <li>Google Maps Location Integration</li>
+
+    <li>1 Week Dedicated Post-Launch Support</li>
+
+   <li>two revisions max</li>
+          </div>
+
+          <div class="project-cardss">
+            <h2 class="rival">Startups Special Site</h2>
+            <h1>Price= 15k-25k</h1>
+            <li>Upto 8-10 Premium Designed Pages</li>
+
+<li>Dynamic Blog System (To attract organic traffic)</li>
+
+<li>Advanced SEO Setup (Keyword Research & Meta Tags)</li>
+
+<li>Lightning Fast Load Speed (GTmetrix/PageSpeed A Grade)</li>
+
+<li>Lead Generation Pop-ups & Integrated CRM Forms</li>
+
+<li>Google Analytics & Search Console Integration</li>
+
+<li>Custom Iconography & Premium Stock Images</li>
+
+<li>Newsletter/Email Marketing Subscription Setup</li>
+
+<li>Social Media Auto-Post Integration</li>
+
+<li>1 Month Priority Maintenance & Tech Support</li>
+
+          </div>
+
+          <div class="project-cardss">
+            <h2 class="rival">Business Level Websites</h2>
+            <h1>Price= ₹25k-₹40k</h1>
+            <li>Full Multi-Page Corporate Website (Up to 10 Pages)</li>
+
+<li>Premium UI/UX Design focused on Conversion</li>
+
+<li>Basic E-commerce / Service Catalog Integration</li>
+
+<li>Google Business Profile (GMB) Setup & Optimization</li>
+
+<li>WhatsApp Business API & Live Chat Integration</li>
+
+<li>Speed Optimization (Under 2.5 Seconds Load Time)</li>
+
+<li>On-Page SEO for Local Market Domination</li>
+
+<li>Monthly Analytics & Lead Tracking Report</li>
+
+<li>Basic Security Firewall & 6 Months Free Support</li>
+          </div>
+
+          <div class="project-cardss">
+            <h2 class="rival">Business Website+App</h2>
+            <h1>Price= 50k-80k</h1>
+            <li>Professional 10-Page Website + Fully Functional Android Only</li>
+
+<li>Unified Admin Dashboard (Manage Web & App content from one place)</li>
+
+<li>Real-time Push Notifications to engage customers 24/7</li>
+
+<li>Integrated Payment Gateway (Razorpay/Stripe) for Web & App</li>
+
+<li>User Profile & Order/Service History Management</li>
+
+<li>Synchronized Database (Web aur App ka data ek saath update hoga)</li>
+
+<li>High-Speed Hosting Setup with SSL Security</li>
+
+<li>Google Play Store & App Store Deployment Guidance</li>
+
+<li>WhatsApp Business & Live Chat Sync</li>
+
+<li>3 Months Maintenance & Critical Bug Support</li>
+
+          </div>
+
+          <div class="project-cardss">
+            <h2 class="rival">Enterprice Level Website Excluding App</h2>
+            <h1>Upcoming / On Request</h1>
+            <li>Custom-Coded High-Performance Web Engine (React/Next.js/Node)</li>
+
+<li>Unlimited Pages with Advanced Database Architecture</li>
+
+<li>Multi-Level Admin Panel with Role-Based Access Control</li>
+
+<li>Real-time Data Analytics Dashboard & Custom Reporting</li>
+
+<li>Advanced Security (SQL Injection Protection, DDoS Mitigation)</li>
+
+<li>Third-Party API Integrations (ERP, CRM, SAP, Inventory)</li>
+
+<li>Automated Workflow (Invoicing, Lead Tracking, Customer Emails)</li>
+
+<li>SEO Dominance Package (Schema Markup & Core Web Vitals)</li>
+
+<li>High-Traffic Server Load Balancing (AWS/Azure Setup)</li>
+
+<li>1 Year Priority Security Updates & Technical Maintenance</li>
+          </div>
+          
+          <div class="project-cardss">
+            <h2 class="rival">Enterprice Level Website+App</h2>
+            <h1>Upcoming / On Request</h1>
+            <li>Custom Enterprise Web Platform (React/Next.js)</li>
+
+<li>Android & iOS Mobile App (Flutter/React Native)</li>
+
+<li>Centralized Admin Dashboard (Inventory/User/Order Management)</li>
+
+<li>Real-time Push Notifications & Automated Messaging</li>
+
+<li>Advanced Cloud Hosting Setup (AWS/Google Cloud)</li>
+
+<li>High-Level Security (Encryption & Data Privacy)</li>
+
+<li>Full API Integration (Payment, SMS, Logistics)</li>
+
+<li>Bi-weekly Maintenance & Technical Security Audits</li>
+
+<li>Dedicated Account Manager & 24/7 Priority Support</li>
+
+          </div>
+      </div>
+    </section>
+    <section id="contact" class="section">
+      <div class="hero-image">
+      <h2 class="rival">Contact Me</h2>
+      <p>if you want to get in touch with Himanshu, please email him at himanshuaio69@gmail.com or call him at +91 9570557907.</p>
+      <form action="mailto:himanshuaio69@gmail.com" method="post">
+      <input type="text" id="name" name="name" placeholder="Your Name" required>
+      <input type="email" id="email" name="email" placeholder="Your Email" required>
+      <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+      <button type="submit" class="btn-highlight">Submit</button>
+      </form>
+    </section>
+  </main>
+  <footer>
+      <p>&copy; 2026 Himanshu. All rights reserved.</p>
+       <div class="social-links">
+  <a href="https://github.com/primecosmic" class="my-logoo" style="font-size: 50px;"><i class="fab fa-github"></i></a>
+  <a href="https://www.linkedin.com/in/sonu-kumar-017994373?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BScERMie6RciVfAkJBmkvIg%3D%3D" style="font-size: 50px;"
+"><i class="fab fa-linkedin"></i></a>
+</div>
+  </footer>
+  <script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('reveal-active'); // CSS class activate
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+</script>
+</body>
+</html>
