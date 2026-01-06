@@ -1,0 +1,636 @@
+html {
+    scroll-behavior: smooth;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background-color: rgb(241, 245, 249);
+    color: rgb(51, 65, 85);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-family: 'Inter', sans-serif;
+}
+h1, h2, h3 { font-family: 'Space Grotesk', sans-serif;
+    color: rgb(15, 23, 42);
+   margin-bottom: 1.5rem;
+   font-weight: 700;
+
+}
+p {
+margin-bottom: 2rem;
+font-family: 'Inter', sans-serif;
+font-size : 1rem;
+line-height : 1.6;
+letter-spacing: 0.015rem;
+color: rgb(51, 65, 85)
+}
+
+li {
+margin-bottom: 0.8rem;
+font-family: 'Inter', sans-serif;
+font-size : 1rem;
+line-height : 1.6;
+letter-spacing: 0.015rem;
+color: rgb(51, 65, 85)
+}
+div {
+    animation: float 3s ease-in;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 15px;
+    justify-content: flex-end;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li a {
+    color: #000000;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-links li a:hover {
+    color: #000000;
+}
+
+/* Navbar layout: logo on left, nav on right */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.navbar .logo h1 {
+    font-size: 1.6rem;
+    margin-bottom: 4px;
+}
+
+/* --- UNIVERSAL ROOT VARIABLES --- */
+:root {
+    --primary: #087ddd;
+    --dark: #0f172a;
+    --light: #f1f5f9;
+    --card-bg: #ffffff; /* Blur hata kar solid white kiya */
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    --glow: 0 0 25px rgba(8, 125, 221, 0.4);
+}
+
+/* --- GLOBAL ENHANCEMENTS --- */
+* { 
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); 
+    box-sizing: border-box;
+}
+
+body { background-color: var(--light); color: #334155; overflow-x: hidden; }
+
+/* --- DEADLY SECTIONS (Sharp & Clear) --- */
+.rival, .vision-chartt, .vision-charttt, .card, .vision-card, .project-cardss {
+    background: var(--card-bg);
+    border-radius: 15px;
+    padding: 2rem;
+    border: 1px solid #e2e8f0;
+    box-shadow: var(--shadow);
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+/* --- ICONS DEFAULT BLACK --- */
+i { 
+    color: #1a1a1a; /* Default Black */
+    margin-bottom: 1rem; 
+    display: inline-block;
+}
+
+/* --- THE MASTER HOVER (Blue Glow) --- */
+.rival:hover, .vision-chartt:hover, .vision-charttt:hover, 
+.card:hover, .vision-card:hover, .project-cardss:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12), var(--glow);
+    border-color: var(--primary);
+}
+
+/* Hover par icon blue hoga */
+.rival:hover i, .vision-chartt:hover i, .vision-charttt:hover i, 
+.card:hover i, .vision-card:hover i, .project-cardss:hover i {
+    color: var(--primary); /* Hover Blue */
+    transform: scale(1.2) rotate(5deg);
+}
+
+/* --- PROJECTS GRID (Responsive) --- */
+.project-gridd {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    padding: 1rem;
+}
+
+/* --- 1. THE MOBILE FIX (Universal Reset) --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Isse elements bahar nahi niklenge */
+    font-family: 'Inter', sans-serif;
+}
+
+html, body {
+    width: 100%;
+    overflow-x: hidden; /* Side scroll khatam karne ke liye */
+}
+
+/* --- 2. NAVBAR REPAIR --- */
+.nav-links li a {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 10px;
+    text-decoration: none;
+    color: var(--dark);
+    margin-bottom: 0 !important; /* Tera 10rem wala bug yahan fix kiya */
+}
+
+/* --- 3. RESPONSIVE GRID SYSTEM --- */
+.services-grid, .vision-grid, .project-gridd {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Automatically screen pe fit hoga */
+    gap: 1.5rem;
+    width: 100%;
+    padding: 10px;
+}
+
+/* --- 4. IMAGE & LOGO FIT --- */
+.my-logo {
+    max-width: 100%; /* Mobile pe phatega nahi */
+    height: auto;
+    width: 150px; /* Standard size */
+    border-radius: 50%;
+    display: block;
+    margin: 1rem auto;
+}
+
+/* --- 5. MEDIA QUERIES (The Real Pro Stuff) --- */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column; /* Mobile pe logo upar, links niche */
+        text-align: center;
+    }
+    .nav-links {
+        justify-content: center;
+        margin-top: 15px;
+        flex-wrap: wrap; /* Links wrap ho jayenge screen pe */
+    }
+    h1 { font-size: 1.5rem; }
+    .rival { font-size: 1.8rem; }
+}
+
+/* --- MOBILE RESPONSIVENESS (The "Phone" Fix) --- */
+@media (max-width: 768px) {
+    .container { padding: 0 15px; }
+    
+    .rival, .vision-chartt, .vision-charttt, .card, .vision-card, .project-cardss {
+        padding: 1.5rem; /* Mobile par padding thodi kam */
+    }
+
+    h2.rival { font-size: 1.8rem; }
+    
+    /* Mobile par hover effect thoda kam taaki lag na kare */
+    .rival:hover { transform: translateY(-5px); }
+}
+
+/* --- CONTACT FORM CLEANUP --- */
+form input, form textarea {
+    width: 100%;
+    background: white !important;
+    color: var(--dark) !important;
+    border: 1px solid #cbd5e1 !important;
+    padding: 12px;
+    border-radius: 8px;
+}
+
+.tagline {
+    color: rgb(15, 23, 42);
+    font-size: 0.9rem;
+    margin-top: 4px;
+}
+
+/* Improved spacing for sections */
+.section {
+    padding: 80px 0;
+
+}
+/* Responsive images and rounded corners */
+.image-responsive {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    display: block;
+}
+
+.btn-highlight {
+    background-color: #087ddd;
+    color: #f8fafc;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+.btn-highlight:hover {
+    background-color: #058abe;
+}
+form input, form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #334155;
+    border-radius: 5px;
+    background-color: #1f2f52;
+    color: #f8fafc;
+    font-size: 1rem;
+}
+form input::placeholder, form textarea::placeholder {
+    color: #94a3b8;
+}
+form textarea {
+    height: 150px;
+    resize: vertical;
+    transition: all 0.8s ease;
+}
+.transition-effect {
+    transition: all 0.8s ease;
+}
+.services-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+    margin-bottom: 2.5rem;
+    align-items: stretch;
+    justify-content: center;
+}
+
+.services-grid .card {
+    flex: 1 1 260px;
+    min-width: 220px;
+    max-width: 400px;
+}
+
+.card {
+    background-color: rgb(247, 242, 242);
+    padding: 2.5rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 6px -1px rgba(100, 94, 94, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(226, 232, 240, 0.5);
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-top: 2rem;
+}
+
+.icon-circle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 50%;
+    color: #f8fafc;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: background-color 0.3s ease;
+}
+.icon-circle.github {
+        background-color: #24292e;
+}
+.icon-circle.linkedin {
+        background-color: #0077b5;
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.reveal { 
+    opacity: 0;
+    transition: all 0.8s ease-out;
+}
+
+.reveal.reveal-active {
+    opacity: 1;
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+
+/* 1. Animation Define Karo */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); } /* Logo thoda upar jayega */
+  100% { transform: translateY(0px); }
+}
+
+.my-logo {
+    width: 12rem;
+    height: 12rem;
+    object-fit: cover;
+    border-radius: 50%;
+    animation: float 3s ease-in-out infinite; 
+    display: block;
+    margin: 0 auto 2rem auto; 
+    align-items: center;
+    margin-top: 5rem;
+}
+
+.my-logo:hover {
+  transform: scale(1.1);
+  transition: 0.3s;
+}
+
+.get-in-touch {
+    display: inline-block;
+    background-color: #087ddd;
+    color: #f8fafc;
+    padding: 12px 24px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+    margin-bottom: 2rem
+}
+
+.hero-content {
+    text-align: center;
+    margin-bottom: 5rem;
+
+}
+
+.hero-header-box-reveal {
+text-align: center;
+padding : 2rem;
+margin-bottom: 3rem;
+
+}
+
+.vision-section {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.vision-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+    max-width: 1100px;
+    margin: 40px auto 0 auto;
+    justify-content: center;
+}
+
+.vision-card {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    transition: 0.3s;
+}
+
+.vision-grid .vision-card {
+    flex: 1 1 260px;
+    min-width: 220px;
+}
+
+.vision-card i {
+    font-size: 2.5rem;
+    color: #087ddd;
+    margin-bottom: 15px;
+}
+
+.vision-card h4 {
+    margin-bottom: 10px;
+    font-size: 1.3rem;
+    animation: float 3s ease-in;
+}
+
+.vision-card p {
+    font-size: 0.95rem;
+    margin-bottom: 0; /* Extra margin hatao */
+    animation: float 3s ease-in;
+}
+
+.portfolio-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.rival {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    background-color: #fffbfb;
+    color: #140505;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(194, 187, 187, 0.05);
+    animation: float 3s ease-in;
+    transition: 0.3s;
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    font-weight: 700;
+    font-style: bold;
+}
+
+.vision-charttt i {
+    margin-bottom: 1rem;
+}
+
+/* Header and nav tweaks */
+.navbar .logo h1 {
+        font-size: 1.8rem;
+        letter-spacing: -0.02rem;
+}
+
+.nav-links li a {
+        display: inline-flex;
+        align-items: top;
+        gap: 8px;
+        padding: 8px 10px;
+        animation: float 3s ease-in;
+        border-radius: 6px;
+        margin-bottom: 10rem;
+}
+
+.nav-links li a:hover,
+.nav-links li a:focus {
+        background: rgba(3, 105, 161, 0.06);
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+    .navbar { padding: 16px 0; }
+    .my-logo { width: 9rem; height: 9rem; }
+    .hero-content { margin-bottom: 3rem; }
+}
+
+@media (max-width: 600px) {
+    .nav-links { gap: 8px; }
+    .nav-links li a { font-size: 0.95rem; }
+    .services-grid { gap: 1rem; }
+    .services-grid .card { flex: 1 1 100%; max-width: 100%; }
+    .vision-grid .vision-card { flex: 1 1 100%; }
+    .container { padding: 0 14px; }
+}
+
+.vision-chartt {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: auto;
+    height: auto;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+    margin-top: auto;
+    background: #f8f8f8;
+    animation: float 3s ease-in;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    transition: 0.3s;
+}
+.vision-charttt h2 {
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    font-size: 2.5rem;
+    color: #140505;
+    animation: float 3s ease-in;
+    margin-bottom: 5rem;
+    font-weight: 700;
+}
+
+.vision-charttt p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: auto;
+    height: auto;
+    animation: float 3s ease-in;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+    margin-top: auto;
+    background: #f8f8f8;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    transition: 0.3s;
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+.vision-chartt i {
+    font-size: 2.5rem;
+    color: #000000;
+    margin-bottom: 15px;
+    text-align: center;
+    animation: float 3s ease-in;
+}
+
+.vision-of-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: auto;
+    height: auto;
+    border-radius: 12px;
+    margin-bottom: auto;
+    margin-top: auto;
+    background: #f8f8f8;
+    padding: auto;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    animation: float 3s ease-in;
+}
+
+.vision-of-text p {
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+.project-gridd {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+gap: 20px;
+width: auto;
+height: auto;
+}
+
+.project-cardss {
+    background: white;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    transition: 0.3s;
+    border: 1px solid #ddd;
+}
+
+.project-cardss h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: auto;
+    height: auto;
+    border-radius: 12px;
+    margin-bottom: auto;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+}
+
+.project-cardss p {
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
